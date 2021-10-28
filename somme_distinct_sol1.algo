@@ -1,0 +1,18 @@
+ALGORITHM somme_distinct_sol1
+VAR
+    set1 , set2: ARRAY_OF integer[10];
+    i,j : INTEGER;
+    sum :INTEGER :=0;
+BEGIN
+    FOR i FROM 1 TO length(set1)-1 STEP 1  DO
+      j:=0;
+      WHILE ((set1[i]<>set2[j]) || (j <> length(set2)-1) DO
+          j:=j+1;
+      END_WHILE
+      IF (j=length(set2)-1)  THEN
+          sum := sum+ set1[i];
+      END_IF
+
+    END_FOR
+    write ("la somme des élements distinct des 2 tableau =", sum);
+END

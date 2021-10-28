@@ -1,0 +1,22 @@
+ALGORITHM somme_commun_sol1
+VAR
+     set1 , set2: ARRAY_OF integer[10];
+    i,j : INTEGER;
+    sum :INTEGER :=0;
+    nb_occurence :INTEGER :=0;
+    
+BEGIN
+     FOR i FROM 0 TO length(set1)-1 STEP 1  DO
+      j:=0;
+      nb_occurence:=0;
+      WHILE  ((j <> length(set2)-1 || nb_occurence <> 1) DO
+        IF (set1[i]=set2[j]) THEN
+        sum:=sum+(set2[j]*2);
+        nb_occurence:=1
+        else 
+        j:=j+1;
+      END_WHILE
+     
+    END_FOR
+    write ("la somme des élements commun des 2 tableau =", sum);
+END

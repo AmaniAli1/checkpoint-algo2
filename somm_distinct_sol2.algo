@@ -1,0 +1,50 @@
+ALGORITHM somme_distinct_sol2
+VAR
+    htab1: HASH_TABLE <INTEGER,INTEGER>;
+    i,j:INTEGER;
+    occ:INTEGER;
+    set1,set2: ARRAY_OF INTEGER[10];
+    sum:INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO (length(set1)-1) STEP 1  DO
+       htab1.insert(sep1[i],occurence(set1[i],set2));
+    END_FOR
+    // ajout des elements du 2 eme tableau sol1
+    FOR j FROM 0 TO (length(set2)-1) STEP 1  DO
+       verif:=occurence(set2[j],set1)
+     IF (verif=1) THEN
+       htab1.insert(step2[j],verif); 
+     END_IF
+    
+    END_FOR
+    // ou ajout des elements du 2 eme tableur sol2
+   /* FOR j FROM 0 TO (length(set2)-1) STEP 1  DO
+       if (htab1.look(set2[j]) THEN
+       htab1.set2[j].insert(set1[j],2)
+       ELSE
+       htab1.insert(set2[j],1)
+    END_FOR */
+
+//fonction qui retourne le nbre d'occurence d'un element du tableau dans un autre tableau
+FUNCTION occurence(element,tab) : INTEGER 
+    VAR
+        occ1: INTEGER :=1;
+        x:INTEGER :=0;;
+    BEGIN
+    
+    REPEAT
+        IF (tab[x]=element) THEN
+            occ1:=2;
+           
+        ELSE
+          x:=x+1;
+    UNTIL (occ1=2 || (x=length(tab)-1)
+    RETURN occ1 ;
+    END
+   FOR i FROM 0 TO length(htab1) STEP 1  DO
+    IF (htab1.get(htab1[i])=1) THEN
+        sum:=sum+getkey(htab1[i])
+    END_IF 
+   END_FOR     
+  write ("la somme des élements distinct des 2 tableau =", sum);  
+END
